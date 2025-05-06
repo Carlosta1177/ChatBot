@@ -22,7 +22,9 @@ user_message = st.chat_input("Escribe tu mensaje aquí...")
 def generate_response(user_message, prompt):
     try:
         logging.info(f"Enviando mensaje a Ollama: {user_message}")
-        response = ollama.chat(
+        # Usa la URL de LocalTunnel
+        client = ollama.Client(host="https://yellow-pigs-warn.loca.lt")
+        response = client.chat(
             model="llama3.1:8b",
             messages=[
                 {"role": "system", "content": prompt},
@@ -33,7 +35,7 @@ def generate_response(user_message, prompt):
         return response['message']['content']
     except Exception as e:
         logging.error(f"Error en Ollama: {str(e)}")
-        return f"Error: No se pudo conectar con Ollama. Asegúrate de que Ollama esté corriendo y el modelo esté descargado. Detalles: {str(e)}"
+        return f"Error: No se pudo conectar con Ollama. Detalles: {str(e)}"
 
 if user_message:
     st.session_state.messages.append({"role": "user", "content": user_message})
