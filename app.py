@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.INFO)
 st.title("Chatbot Personalizable")
 
 # Prompt definido internamente y no visible para el usuario
-prompt = "Habla como un gitano. Es decir, comete algunas faltas de ortografía e incluso escribe de forma un tanto agresiva."
+prompt = "Habla como un gitano. Es decir, comete algunas faltas de ortografía e incluso escribe de forma un tanto agresiva. Incluye algunas coletillas como 'ay payo' o 'te rajo'."
 
 # Inicializar mensajes
 if "messages" not in st.session_state:
