@@ -23,7 +23,7 @@ def generate_response(user_message, prompt):
     try:
         logging.info(f"Enviando mensaje a Ollama: {user_message}")
         # Usa la URL de LocalTunnel
-        client = ollama.Client(host="https://common-singers-lead.loca.lt")
+        client = ollama.Client(host="https://funny-peaches-add.loca.lt")
         response = client.chat(
             model="llama3.1:8b",
             messages=[
